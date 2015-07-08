@@ -2,7 +2,6 @@ FROM jenkins:latest
 MAINTAINER tharvey@indatus.com
 
 # Debian 8 "Jessie"
-# https://wiki.debian.org/VirtualBox#Debian_8_.22Jessie.22
 
 ENV JAVA_OPTS -Duser.timezone=America/New_York
 
