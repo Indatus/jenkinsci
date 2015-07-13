@@ -2,6 +2,7 @@ FROM jenkins:latest
 MAINTAINER tharvey@indatus.com
 
 # Debian 8 "Jessie"
+# https://wiki.debian.org/VirtualBox#Debian_8_.22Jessie.22
 
 ENV JAVA_OPTS -Duser.timezone=America/New_York
 
@@ -10,8 +11,15 @@ USER root
 
 RUN apt-get update
 
+# Install aws cli for usin in backups
+RUN apt-get install -y python-pip
+RUN pip install awscli
+
 # Install docker
-RUN wget -qO- https://get.docker.com/ | sh
+# pinning the docker version to 1.6.2 for now until
+# https://github.com/docker/compose/issues/1590
+# is resolved
+RUN wget -qO- https://get.docker.com/ubuntu/ | sed -r 's/^apt-get install -y lxc-docker$/apt-get install -y lxc-docker-1.6.2/g' | sh
 
 # Install docker-compose
 RUN curl -L https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
