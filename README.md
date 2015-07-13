@@ -1,5 +1,6 @@
 <img src="http://jenkins-ci.org/sites/default/files/jenkins_logo.png"/>
 
+
 This image extends the [Official Jenkins Docker Image](https://github.com/jenkinsci/docker).
 Refer to the README in the official repo for installation instructions.
 
@@ -38,6 +39,7 @@ docker run -p 8080:8080 -p 50000:50000 indatus1/jenkins
 ```
 git clone git@github.com:Indatus/jenkinsci.git
 cd jenkinsci
+# or whatever docker-machine host you have runnint
 eval "$(docker-machine env dev)"
 docker build -t indatus1/jenkins ./
 docker push indatus1/jenkins
