@@ -12,9 +12,11 @@ docker run -p 8080:8080 -p 50000:50000 indatus1/jenkins
 ## Added Features
 
 * Set Jenkins timezone
-* Docker
-* Docker Compose
-* Docker Machine
+* [Docker](https://docs.docker.com/)
+* [Docker Compose](https://docs.docker.com/compose/)
+* [Docker Machine](https://docs.docker.com/machine/)
+* [Ansible](http://docs.ansible.com/)
+* [AWS CLI](http://aws.amazon.com/documentation/cli/)
 
 ## Updates
 
@@ -27,7 +29,9 @@ docker run -p 8080:8080 -p 50000:50000 indatus1/jenkins
 
 2. Stop the jenkins container.
 
-    `$ docker stop e6e530c9d9ed`
+    ```
+    docker stop e6e530c9d9ed
+    ```
 
 3. Pull the latest jenkins container
 
@@ -36,12 +40,14 @@ docker run -p 8080:8080 -p 50000:50000 indatus1/jenkins
     ```
 4. Start the new jenkins container with the volumes from the old container.
 
-    `$ docker run -d --name name_of_new_container --volumes-from name_of_previous_container indatus1/jenkins`
+    ```
+    docker run -d --name name_of_new_container --volumes-from name_of_previous_container indatus1/jenkins
+    ```
 
-    ** NOTE: the example above presumes that the previously deployed jenkins container is named jenkins.domain.com.a and the new container will be named jenkins.domain.com.b
+    > NOTE: the example above presumes that the previously deployed jenkins container is named jenkins.domain.com.a and the new container will be named jenkins.domain.com.b
+
 5. Remove the old container
-    
+
     ```
     docker rm name_of_previous_container
     ```
-
